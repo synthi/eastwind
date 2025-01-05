@@ -36,7 +36,10 @@ Eastwind {
 			s.waitForBoot {
 
 				h = Harmonics.new(10);
-				a = [27,30,34,37,41 ,44,47,51].midicps;
+				//a = [27,30,34,37,41 ,44,47,51].midicps;
+                                a = [0,1,2,3];
+                                a = [1, 6/5].collect({|n|n*(1.5**a)}).flatten.sort;
+                                a = [27].midicps.collect({|n|a*n}).flatten;
 				r = h.ramp(1,1);
 				itm_count = a.size * 10;
 				freqlist = a.collect( { | n | r * n }).flatten;
